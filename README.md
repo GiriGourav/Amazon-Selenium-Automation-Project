@@ -88,7 +88,6 @@ mvn clean test
 
 * iPhone search test
 * Samsung Galaxy search test
-* MacBook search test
 
 ---
 
