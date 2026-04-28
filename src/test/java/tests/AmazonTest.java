@@ -1,29 +1,47 @@
 package tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import java.net.URL;
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.List;
 
 public class AmazonTest {
 
     public WebDriver setupDriver() {
 
-        WebDriverManager.chromedriver().setup();
+        String username = "codinggourav";
+        String accessKey = "LT_fQiaEReWCTy43Kz6jEoLKbE8YFmUfIAnbJntkZC0H43KMv2";
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        options.addArguments("--disable-blink-features=AutomationControlled");
-        options.addArguments("--incognito");
-        options.addArguments("--disable-notifications");
+        String hubURL =
+                "https://" + username + ":" + accessKey +
+                        "@hub.lambdatest.com/wd/hub";
 
-        return new ChromeDriver(options);
+        DesiredCapabilities caps = new DesiredCapabilities();
+
+        caps.setCapability("browserName", "Chrome");
+        caps.setCapability("browserVersion", "latest");
+        caps.setCapability("platformName", "Windows 11");
+
+        HashMap<String, Object> ltOptions = new HashMap<>();
+        ltOptions.put("build", "Amazon Selenium Build");
+        ltOptions.put("name", "Amazon TestNG Test");
+        ltOptions.put("w3c", true);
+        ltOptions.put("plugin", "java-testNG");
+
+        caps.setCapability("LT:Options", ltOptions);
+
+        try {
+            return new RemoteWebDriver(new URL(hubURL), caps);
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to start LambdaTest session");
+        }
     }
 
     public void searchProduct(String product) {
@@ -98,14 +116,19 @@ public class AmazonTest {
             driver.quit();
         }
     }
-
     @Test
     public void iphoneTest() {
-        searchProduct("iphone 17pro");
+        searchProduct("iphone");
     }
 
     @Test
     public void galaxyTest() {
-        searchProduct("Samsung Galaxy S24");
+        searchProduct("Samsung Galaxy");
+    }
+
+    @Test
+    public void wirelessMouseTest() {
+        searchProduct("wireless Mouse");
     }
 }
+
