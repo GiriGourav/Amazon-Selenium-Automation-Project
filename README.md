@@ -1,4 +1,4 @@
-````markdown
+
 # Amazon Selenium Automation Project
 
 This project is a Selenium + TestNG automation framework built with Java that performs product search, price extraction, and add-to-cart validation on Amazon India.
@@ -92,6 +92,25 @@ mvn clean test
 
 ---
 
+## ☁️ Run on LambdaTest Cloud
+
+### 5️⃣ Update Username & Access Key
+
+Before running tests on LambdaTest, update your credentials inside the code:
+
+```java
+String username = "YOUR_USERNAME";
+String accessKey = "YOUR_ACCESS_KEY";
+```
+
+You can get these credentials from your LambdaTest dashboard.
+
+### 6️⃣ Run Cloud Tests
+
+After updating credentials, execute the tests normally using Maven or TestNG.
+
+---
+
 ## 🧪 Test Cases Included
 
 | Test Name         | Product        |
@@ -152,6 +171,14 @@ Amazon frequently updates UI selectors.
 * Use explicit waits
 * Improve locator strategy
 
+### 4️⃣ Invalid LambdaTest Credentials
+
+If cloud execution fails:
+
+* Recheck Username
+* Recheck Access Key
+* Ensure credentials are active
+
 ---
 
 ## 📌 Future Enhancements
@@ -162,8 +189,6 @@ Amazon frequently updates UI selectors.
 * Parallel Execution
 * Jenkins CI/CD Integration
 * Data Driven Testing
-
----
 
 ## 👨‍💻 Author
 
@@ -177,7 +202,6 @@ GitHub: [https://github.com/GiriGourav](https://github.com/GiriGourav)
 
 Successfully executed Selenium TestNG tests on **LambdaTest Cloud Grid**
 
----
 
-```
-```
+
+
