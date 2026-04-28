@@ -54,8 +54,8 @@ amazonautomation/
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/GiriGourav/automated-testing.git
-cd automated-testing
+git clone https://github.com/GiriGourav/Amazon-Selenium-Automation-Project.git
+cd Amazon-Selenium-Automation-Project
 ```
 
 ---
